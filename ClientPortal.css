@@ -1,316 +1,62 @@
-/* drasticdigital.css - Updated for DrasticDigital Snippets */
+/* drasticdigital.css - Minimal: H1 and Sizing ONLY */
 
-/* Global Reset and Base Styles */
-*,
-*::before,
-*::after {
+/* Basic Reset and Global Styles */
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
 body {
-    background-color: #000; /* Black background as requested */
-    color: #fff; /* White text for high contrast */
+    background-color: #000;
+    color: #fff;
     font-family: Arial, sans-serif;
     overflow-x: hidden;
-    overflow-y: hidden;
 }
 
-/* Shared Container Styles for Snippets - 750px height on large screens */
+/* Snippet Container - Fixed 750px Height on Large Screens */
 .drastic-snippet {
     width: 90%;
     max-width: 800px;
-    height: auto;
+    height: 750px;  /* Fixed height on large screens */
     margin: 20px auto;
     padding: 20px;
-    background: #000; /* Black background as requested */
-    box-shadow: 0 0 40px rgba(255, 0, 0, 0.3); /* Subtle red glow */
-    border-radius: 12px;
-    border: 2px solid red; /* Red border for highlights */
+    background: #000;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow-y: hidden;
+   /* flex-direction: column;  Removed - Not needed with only one element*/
+    overflow-y: auto; /* Scroll within snippet if needed */
     overflow-x: hidden;
-    min-height: 750px; /* Fixed height for large screens */
-    max-height: 750px; /* Ensures the snippet doesn’t exceed 750px on large screens */
 }
 
-/* Shared Title Styles - Inspired by Dribbble shot’s clear headers */
+/* Large screen media query (> 992px) */
+@media (min-width: 993px) {
+    .drastic-snippet {
+        overflow-y: hidden; /* No internal scrollbar on large screens */
+    }
+}
+
+/* Title - Top Left */
 .drastic-snippet h1 {
-    font-size: 2.5rem; /* Large title on wide screens, inspired by Dribbble’s typography */
-    color: #fff; /* White text for contrast */
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8); /* White glow for visibility */
-    text-align: center;
-    margin: 15px 0; /* Generous spacing, matching Dribbble’s layout */
-    line-height: 1.2;
-    white-space: nowrap; /* Prevent wrapping on large screens for stability */
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 100%;
-}
-
-@media (min-width: 562px) {
-    .drastic-snippet h1 {
-        font-size: 3rem; /* Larger title on even wider screens */
-    }
-}
-
-@media (max-width: 992px) { /* Shrink title earlier at 992px, as requested */
-    .drastic-snippet h1 {
-        font-size: 2rem; /* Reduce title size earlier for medium screens */
-        margin: 10px 0; /* Reduced margin for compactness */
-        white-space: normal; /* Allow wrapping on smaller screens */
-    }
-}
-
-/* Shared Table and Field Styles - Inspired by Dribbble’s layout and spacing */
-.drastic-snippet table {
-    width: 100%;
-    max-width: 100%;
-    border-collapse: separate; /* Separate for better spacing on large screens */
-    border-spacing: 0 10px; /* 10px row spacing, matching Dribbble’s generous spacing */
-    table-layout: auto; /* Allow dynamic column widths */
-    margin: 0 auto;
-    background: #000; /* Black background */
-}
-
-.drastic-snippet tr {
-    display: flex;
-    flex-direction: row; /* Side by side on large screens */
-    align-items: center;
-    margin-bottom: 10px; /* Additional spacing between rows */
-}
-
-.drastic-snippet td {
+    font-size: 1.5rem;
     text-align: left;
-    padding: 8px 15px; /* Balanced padding for large screens, inspired by Dribbble’s spacing */
-    color: #fff; /* White text for contrast */
-    word-wrap: break-word; /* Allow text to wrap */
-    background: #000; /* Black background */
-    white-space: normal; /* Allow text wrapping */
-    width: 100%; /* Full width to prevent overflow */
+    margin-bottom: 15px; /*This may need to be removed or changed*/
+    line-height: 1.2;
+    font-family: Arial, sans-serif;
 }
 
-.drastic-snippet td:first-child {
-    font-weight: bold;
-    font-size: 1.5rem; /* Larger labels on large screens, matching Dribbble’s typography */
-    padding-right: 15px; /* Increased padding for spacing */
-    background: #000; /* Black background */
-    width: 25%; /* Fixed width for labels on large screens */
-}
-
-.drastic-snippet td:last-child {
-    width: 75%; /* Fixed width for values/inputs on large screens */
-}
-
-/* Shared Input and Textarea Styles - Inspired by Dribbble’s input design */
-.drastic-snippet input[type='text'],
-.drastic-snippet input[type='email'],
-.drastic-snippet textarea {
-    width: 100%;
-    max-width: 100%;
-    padding: 12px; /* Generous padding for touch, inspired by Dribbble */
-    border-radius: 8px; /* Rounded corners for modern look */
-    background: #111; /* Dark gray fill for contrast */
-    color: #fff; /* White text for readability */
-    border: 2px solid #333; /* Subtle border */
-    font-size: 1.2rem; /* Readable font size on large screens */
-    transition: box-shadow 0.2s ease-in-out; /* Smooth hover effect */
-    min-width: 0; /* Prevent overflow */
-}
-
-.drastic-snippet textarea {
-    height: 120px; /* Tall textarea for large screens, matching Dribbble’s input height */
-    resize: vertical; /* Allow vertical resizing */
-    max-height: 200px; /* Limit max height for large screens */
-}
-
-/* Shared Hover & Focus Effects - Red highlights for interactivity */
-.drastic-snippet input[type='text']:hover,
-.drastic-snippet input[type='text']:focus,
-.drastic-snippet input[type='email']:hover,
-.drastic-snippet input[type='email']:focus,
-.drastic-snippet textarea:hover,
-.drastic-snippet textarea:focus {
-    border-color: red; /* Red border for highlights */
-    box-shadow: 0 0 15px rgba(255, 0, 0, 0.8); /* Red glow for focus */
-    outline: none; /* Remove default outline */
-}
-
-/* Shared Buttons Container and Styles - Inspired by Dribbble’s button design */
-.drastic-snippet .button-container {
-    display: flex;
-    justify-content: center;
-    gap: 15px; /* Generous spacing between buttons */
-    margin: 15px 0 0 0; /* Top margin for spacing */
-    background: #000; /* Black background */
-    width: 100%;
-}
-
-.drastic-snippet .button-container input {
-    width: 150px; /* Default button width */
-    padding: 12px; /* Generous padding for touch */
-    border-radius: 10px; /* Rounded corners */
-    font-size: 1.3rem; /* Large, readable font */
-    cursor: pointer;
-    border: none;
-    font-weight: bold;
-    transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth transitions */
-}
-
-@media (min-width: 562px) {
-    .drastic-snippet .button-container input {
-        width: 200px; /* Larger buttons on wider screens */
-    }
-}
-
-/* Submit Button - Blue, inspired by Dribbble’s primary action buttons */
-.drastic-snippet #submitButton {
-    background: #007bff; /* Blue for primary action */
-    color: #fff; /* White text */
-}
-.drastic-snippet #submitButton:hover {
-    background: #0056b3; /* Darker blue on hover */
-    box-shadow: 0 0 15px rgba(0, 0, 255, 0.8); /* Blue glow */
-}
-
-/* Reset Button - Gray, with red highlight */
-.drastic-snippet #resetButton {
-    background: #444; /* Gray for secondary action */
-    color: #fff; /* White text */
-}
-.drastic-snippet #resetButton:hover {
-    background: #666; /* Darker gray on hover */
-    box-shadow: 0 0 15px rgba(255, 0, 0, 0.8); /* Red glow for consistency */
-}
-
-/* Responsive Design for Smaller Screens - Mobile Layout at 992px, inspired by Dribbble’s mobile adaptation */
-@media (max-width: 992px) { /* Switch to mobile layout earlier at 992px */
+/* Responsive Design - Mobile at 992px */
+@media (max-width: 992px) {
     .drastic-snippet {
         width: 88%;
-        padding: 15px; /* Reduced padding for compactness */
+        padding: 15px;
         margin: 10px auto;
-        height: auto;
-        overflow-y: hidden;
-        min-height: 0; /* Remove min-height on small screens */
-        max-height: none; /* Allow dynamic height, but ensure no overflow */
-        background: #000; /* Black background */
+        height: auto; /* Dynamic height on mobile */
+        min-height: 0;
+        max-height: none;
     }
 
     .drastic-snippet h1 {
-        font-size: 2rem; /* Reduced title size for medium screens */
-        margin: 10px 0; /* Reduced margin for compactness */
-    }
-
-    .drastic-snippet table {
-        max-width: 100%;
-        border-spacing: 0 8px; /* Reduced spacing for smaller screens */
-        background: #000;
-    }
-
-    .drastic-snippet tr {
-        display: block; /* Stack vertically for mobile */
-        margin-bottom: 10px; /* Spacing between rows */
-        background: #000;
-    }
-
-    .drastic-snippet td {
-        display: block;
-        width: 100%;
-        padding: 6px 0; /* Reduced padding for stacking */
-        background: #000;
-    }
-
-    .drastic-snippet td:first-child {
-        padding-bottom: 6px;
-        width: 100%;
-        font-size: 1.1rem; /* Slightly larger for readability on medium screens */
-        background: #000;
-        white-space: normal;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-
-    .drastic-snippet td:last-child {
-        padding: 6px 0;
-        width: 100%;
-    }
-
-    .drastic-snippet input[type='text'],
-    .drastic-snippet input[type='email'],
-    .drastic-snippet textarea {
-        padding: 10px; /* Slightly larger for touch interaction */
-        font-size: 1.1rem; /* Slightly larger for readability */
-        background: #111;
-    }
-
-    .drastic-snippet textarea {
-        height: 80px; /* Reduced for smaller screens */
-        max-height: 120px; /* Reduced max-height */
-    }
-
-    .drastic-snippet .button-container {
-        flex-direction: column;
-        align-items: center;
-        gap: 12px; /* Reduced gap for mobile */
-    }
-
-    .drastic-snippet .button-container input {
-        width: 100%;
-        max-width: 220px; /* Maintain touch-friendly size */
-        padding: 10px; /* Consistent padding for touch */
-        font-size: 1.1rem; /* Consistent font size */
-    }
-}
-
-@media (max-width: 561px) {
-    .drastic-snippet {
-        width: 85%;
-        padding: 10px; /* Further reduced for very small screens */
-        margin: 5px auto;
-        background: #000;
-        overflow-y: hidden;
-    }
-
-    .drastic-snippet h1 {
-        font-size: 1.5rem; /* Further reduce for very small screens */
-        margin: 8px 0; /* Reduced margin */
-    }
-
-    .drastic-snippet table {
-        border-spacing: 0 6px; /* Further reduced for very small screens */
-    }
-
-    .drastic-snippet tr {
-        margin-bottom: 8px;
-    }
-
-    .drastic-snippet td:first-child {
-        font-size: 0.9rem; /* Smaller for very small screens */
-        padding: 4px 0; /* Reduced padding */
-    }
-
-    .drastic-snippet td:last-child {
-        padding: 4px 0;
-    }
-
-    .drastic-snippet input[type='text'],
-    .drastic-snippet input[type='email'],
-    .drastic-snippet textarea {
-        padding: 6px; /* Reduced for very small screens */
-        font-size: 0.9rem; /* Smaller for very small screens */
-    }
-
-    .drastic-snippet textarea {
-        height: 60px; /* Further reduced */
-        max-height: 100px; /* Further reduced */
-    }
-
-    .drastic-snippet .button-container input {
-        max-width: 200px; /* Slightly reduced for very small screens */
-        padding: 8px; /* Reduced padding */
-        font-size: 1rem; /* Smaller font */
+        font-size: 1.2rem;
+        margin-bottom: 10px; /*This may need to be removed or changed*/
     }
 }
