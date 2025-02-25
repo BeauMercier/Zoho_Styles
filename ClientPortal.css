@@ -1,0 +1,316 @@
+/* drasticdigital.css */
+
+/* Global Reset and Base Styles */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+/* Shared Container Styles for Snippets */
+.drastic-snippet {
+    width: 90%;
+    max-width: 800px;
+    height: auto;
+    margin: 20px auto;
+    padding: 20px;
+    background: #000;
+    box-shadow: 0 0 40px rgba(255, 0, 0, 0.3); /* Subtle red glow */
+    border-radius: 12px;
+    border: 2px solid red; /* Red border for consistency */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    min-height: 750px; /* Fixed height for large screens */
+    max-height: 750px; /* Ensures the snippet doesn’t exceed 750px on large screens */
+}
+
+/* Shared Title Styles */
+.drastic-snippet h1 {
+    font-size: 2.5rem;
+    color: #fff;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8); /* Glow effect */
+    text-align: center;
+    margin: 15px 0;
+    line-height: 1.2;
+    white-space: nowrap; /* Prevent wrapping on large screens */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+@media (min-width: 562px) {
+    .drastic-snippet h1 {
+        font-size: 3rem; /* Larger title on wider screens */
+    }
+}
+
+@media (max-width: 992px) { /* Shrink title earlier at 992px */
+    .drastic-snippet h1 {
+        font-size: 2rem; /* Reduce title size earlier */
+        margin: 10px 0; /* Reduce margin for smaller screens */
+        white-space: normal; /* Allow wrapping on smaller screens */
+    }
+}
+
+/* Shared Form/Field Styles */
+.drastic-snippet table {
+    width: 100%;
+    max-width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px; /* Spacing between rows on large screens */
+    table-layout: auto;
+    margin: 0 auto;
+    background: #000;
+}
+
+.drastic-snippet tr {
+    display: flex;
+    flex-direction: row; /* Default: side by side on large screens */
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.drastic-snippet td {
+    text-align: left;
+    padding: 8px 15px; /* Increased padding for large screens */
+    color: #fff;
+    word-wrap: break-word;
+    background: #000;
+    white-space: normal;
+    width: 100%;
+}
+
+.drastic-snippet td:first-child {
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding-right: 15px;
+    background: #000;
+    width: 25%; /* Fixed width for labels on large screens */
+}
+
+.drastic-snippet td:last-child {
+    width: 75%; /* Fixed width for inputs on large screens */
+}
+
+/* Shared Input Styles */
+.drastic-snippet input[type='text'],
+.drastic-snippet input[type='email'],
+.drastic-snippet textarea {
+    width: 100%;
+    max-width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    background: #111; /* Dark gray fill */
+    color: #fff;
+    border: 2px solid #333; /* Subtle border */
+    font-size: 1.2rem;
+    transition: box-shadow 0.2s ease-in-out;
+    min-width: 0;
+}
+
+.drastic-snippet textarea {
+    height: 120px; /* Increased height for large screens */
+    resize: vertical;
+    max-height: 200px; /* Increased max-height for large screens */
+}
+
+/* Shared Hover & Focus Effects */
+.drastic-snippet input[type='text']:hover,
+.drastic-snippet input[type='text']:focus,
+.drastic-snippet input[type='email']:hover,
+.drastic-snippet input[type='email']:focus,
+.drastic-snippet textarea:hover,
+.drastic-snippet textarea:focus {
+    border-color: red; /* Red to match border */
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.8); /* Red glow */
+    outline: none;
+}
+
+/* Shared Buttons Container and Styles */
+.drastic-snippet .button-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 15px 0 0 0;
+    background: #000;
+    width: 100%;
+}
+
+.drastic-snippet .button-container input {
+    width: 150px;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    border: none;
+    font-weight: bold;
+    transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+@media (min-width: 562px) {
+    .drastic-snippet .button-container input {
+        width: 200px; /* Larger buttons on wider screens */
+    }
+}
+
+/* Submit Button - Blue */
+.drastic-snippet #submitButton {
+    background: #007bff;
+    color: white;
+}
+.drastic-snippet #submitButton:hover {
+    background: #0056b3;
+    box-shadow: 0 0 15px rgba(0, 0, 255, 0.8); /* Blue glow */
+}
+
+/* Reset Button - Gray */
+.drastic-snippet #resetButton {
+    background: #444;
+    color: white;
+}
+.drastic-snippet #resetButton:hover {
+    background: #666;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.8); /* Red glow to match border */
+}
+
+/* Responsive Design for Smaller Screens (Mobile Layout at 992px) */
+@media (max-width: 992px) { /* Switch to mobile layout earlier at 992px */
+    .drastic-snippet {
+        width: 88%;
+        padding: 15px;
+        margin: 10px auto;
+        height: auto;
+        overflow-y: hidden;
+        min-height: 0; /* Remove min-height on small screens */
+        max-height: none; /* Allow dynamic height, but ensure no overflow */
+        background: #000;
+    }
+
+    .drastic-snippet h1 {
+        font-size: 2rem; /* Already reduced at 992px */
+        margin: 10px 0;
+    }
+
+    .drastic-snippet table {
+        max-width: 100%;
+        border-spacing: 0 8px; /* Reduced spacing for smaller screens */
+        background: #000;
+    }
+
+    .drastic-snippet tr {
+        display: block;
+        margin-bottom: 10px;
+        background: #000;
+    }
+
+    .drastic-snippet td {
+        display: block;
+        width: 100%;
+        padding: 6px 0;
+        background: #000;
+    }
+
+    .drastic-snippet td:first-child {
+        padding-bottom: 6px;
+        width: 100%;
+        font-size: 1.1rem; /* Slightly larger for readability */
+        background: #000;
+        white-space: normal;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .drastic-snippet td:last-child {
+        padding: 6px 0;
+        width: 100%;
+    }
+
+    .drastic-snippet input[type='text'],
+    .drastic-snippet input[type='email'],
+    .drastic-snippet textarea {
+        padding: 10px; /* Slightly larger for touch interaction */
+        font-size: 1.1rem; /* Slightly larger for readability */
+        background: #111;
+    }
+
+    .drastic-snippet textarea {
+        height: 80px;
+        max-height: 120px; /* Reduced for smaller screens */
+    }
+
+    .drastic-snippet .button-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .drastic-snippet .button-container input {
+        width: 100%;
+        max-width: 220px; /* Maintain button width for touch targets */
+        padding: 10px;
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 561px) {
+    .drastic-snippet {
+        width: 85%;
+        padding: 10px;
+        margin: 5px auto;
+        background: #000;
+        overflow-y: hidden;
+    }
+
+    .drastic-snippet h1 {
+        font-size: 1.5rem; /* Further reduce for very small screens */
+        margin: 8px 0;
+    }
+
+    .drastic-snippet table {
+        border-spacing: 0 6px; /* Further reduced for very small screens */
+    }
+
+    .drastic-snippet tr {
+        margin-bottom: 8px;
+    }
+
+    .drastic-snippet td:first-child {
+        font-size: 0.9rem; /* Smaller for very small screens */
+        padding: 4px 0;
+    }
+
+    .drastic-snippet td:last-child {
+        padding: 4px 0;
+    }
+
+    .drastic-snippet input[type='text'],
+    .drastic-snippet input[type='email'],
+    .drastic-snippet textarea {
+        padding: 6px; /* Reduced for very small screens */
+        font-size: 0.9rem; /* Smaller for very small screens */
+    }
+
+    .drastic-snippet textarea {
+        height: 60px;
+        max-height: 100px; /* Further reduced for very small screens */
+    }
+
+    .drastic-snippet .button-container input {
+        max-width: 200px; /* Slightly reduced for very small screens */
+        padding: 8px;
+        font-size: 1rem; /* Smaller for very small screens */
+    }
+}
