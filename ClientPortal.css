@@ -20,21 +20,14 @@ body {
     margin: 20px auto;
     padding: 20px;
     background: #000;
-    display: flex;
-    justify-content: flex-start; /* Aligns content to the left */
     overflow-y: auto;
     overflow-x: hidden;
 }
 
-
-
-/* Title - Top Left */
 .drastic-snippet h1 {
     font-size: 1.5rem;
     text-align: left;
-    margin-bottom: 15px; /*This may need to be removed or changed*/
+    margin-bottom: 15px;
     line-height: 1.2;
     font-family: Arial, sans-serif;
 }
-
-
