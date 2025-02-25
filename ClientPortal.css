@@ -8,8 +8,6 @@
 }
 
 body {
-    background-color: #000;
-    color: #fff;
     font-family: Arial, sans-serif;
     overflow-x: hidden;
 }
@@ -28,12 +26,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Large screen media query (> 992px) */
-@media (min-width: 993px) {
-    .drastic-snippet {
-        overflow-y: hidden; /* No internal scrollbar on large screens */
-    }
-}
+
 
 /* Title - Top Left */
 .drastic-snippet h1 {
@@ -44,19 +37,4 @@ body {
     font-family: Arial, sans-serif;
 }
 
-/* Responsive Design - Mobile at 992px */
-@media (max-width: 992px) {
-    .drastic-snippet {
-        width: 88%;
-        padding: 15px;
-        margin: 10px auto;
-        height: auto; /* Dynamic height on mobile */
-        min-height: 0;
-        max-height: none;
-    }
 
-    .drastic-snippet h1 {
-        font-size: 1.2rem;
-        margin-bottom: 10px; /*This may need to be removed or changed*/
-    }
-}
